@@ -7,7 +7,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'دانشنامه کارگاه فنّاوری دِراک',
-			customCss: ["./src/styles/wiki-rtl.css"],
+      customCss: ['./src/styles/wiki-rtl.css'],
+
       social: [
         {
           icon: 'gitlab',
@@ -15,6 +16,7 @@ export default defineConfig({
           href: 'https://gitlab.chabokan.net/derock.ir/wiki',
         },
       ],
+
       defaultLocale: 'root',
       locales: {
         root: {
@@ -22,17 +24,26 @@ export default defineConfig({
           lang: 'fa-IR',
         },
       },
+
       sidebar: [
         {
-          label: 'Guides',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
-          ],
+          label: 'خانه',
+          items: [{ label: 'صفحه اصلی', slug: '' }],
         },
+
         {
-          label: 'Reference',
-          items: [{ autogenerate: { directory: 'reference' } }],
+          label: 'پلتفرم‌های سخت‌افزاری',
+          items: [{ autogenerate: { directory: 'hardware-platforms' } }],
+        },
+
+        {
+          label: 'مبانی الکترونیک',
+          items: [{ autogenerate: { directory: 'electronics-fundamentals' } }],
+        },
+
+        {
+          label: 'ماژول‌ها و قطعات',
+          items: [{ autogenerate: { directory: 'components-modules' } }],
         },
       ],
     }),

@@ -2,13 +2,32 @@
    DEROCK RTL THEME FOR STARLIGHT
    ================================ */
 
+   @font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/vazirmatn/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/vazirmatn/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --sl-font: 'Vazirmatn', system-ui, sans-serif;
+}
+
+html {
   direction: rtl;
 }
 
 /* فونت فارسی استاندارد */
 html, body {
-  font-family: Vazirmatn, IRANSans, system-ui, sans-serif;
   direction: rtl;
   text-align: right;
 }
