@@ -29,3 +29,16 @@
   font-weight: 100;
   letter-spacing: -1px;
 }
+
+.sl-markdown-content img {
+  display: block;
+  margin-inline: auto;
+  /* margin-bottom: 1rem; */
+  border-radius: 12px;
+  /* border: 1px solid lightgrey; */
+}
+.sl-markdown-content em {
+  text-align: center;
+  display: block;
+  margin-inline: auto;
+}
