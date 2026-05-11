@@ -20,5 +20,12 @@
 
 :root {
   --sl-font: 'Vazirmatn', system-ui, sans-serif;
-  --sl-color-accent: oklch(0.71 0.128 182); /* primary دِراک */
+  --sl-color-accent: black; /* primary دِراک */
+  --sl-color-accent-high: white;
+  /* --sl-color-text-accent: black; */
+}
+
+.site-title {
+  font-weight: 100;
+  letter-spacing: -1px;
 }

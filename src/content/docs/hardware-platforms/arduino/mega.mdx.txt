@@ -1,6 +1,7 @@
 ---
 title: Arduino Mega 2560
 description: معرفی کامل برد Arduino Mega 2560، مشخصات فنی، پایه‌ها، کاربردها، ارتباطات و تفاوت آن با Uno و Nano
+sidebar: false
 ---
 
 # Arduino Mega 2560

@@ -6,8 +6,12 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'ویکی کارگاه فنّاوری دِراک',
+      title: 'دانشنامه فنّاوری دِراک',
       customCss: ['./src/styles/wiki-rtl.css'],
+      logo: {
+        src: './src/assets/img/logo-40.png', // مسیر لوگو
+        alt: 'لوگو کارگاه فنّاوری دراک',
+      },
 
       social: [
         {
@@ -28,8 +32,8 @@ export default defineConfig({
 
       sidebar: [
         {
-          label: 'ویکی کارگاه فنّاوری دِراک',
-          items: [{ label: 'خانه', slug: '' }],
+          label: 'مدخل',
+          items: [{ label: '👋 راهنمای دانشنامه', slug: '' }],
         },
 
         // {
@@ -55,11 +59,11 @@ export default defineConfig({
             {
               label: ' برد های اسپرسیف',
               items: [
-                {
-                  autogenerate: {
-                    directory: 'hardware-platforms/espressif',
-                  },
-                },
+                // {
+                //   autogenerate: {
+                //     directory: 'hardware-platforms/espressif',
+                //   },
+                // },
               ],
             },
           ],
