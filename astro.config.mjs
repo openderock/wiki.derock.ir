@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'دانشنامه فنّاوری دِراک',
+      title: 'دانشنامه الکترونیک دِراک',
       favicon: '/favicon.png',
       customCss: ['./src/styles/wiki-rtl.css'],
       logo: {
