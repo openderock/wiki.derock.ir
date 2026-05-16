@@ -44,15 +44,35 @@ export default defineConfig({
 
         {
           label: 'برد های توسعه',
-          collapsed: false,
+          collapsed: true,
           items: [
             {
-              label: 'برد های آردوینو',
+              label: 'آردوینو',
               items: [
+                { label: 'معرفی آردوینو', link: 'platforms/arduino' },
                 {
-                  autogenerate: {
-                    directory: 'hardware-platforms/arduino',
-                  },
+                  label: 'مدل‌ها',
+                  items: [
+                    { autogenerate: { directory: 'platforms/arduino/boards' } },
+                  ],
+                },
+                {
+                  label: 'راهنماها',
+                  items: [
+                    { autogenerate: { directory: 'platforms/arduino/tutorials' } },
+                  ],
+                },
+                {
+                  label: 'کتابخانه‌ها',
+                  items: [
+                    { autogenerate: { directory: 'platforms/arduino/libraries' } },
+                  ],
+                },
+                {
+                  label: 'شیلد‌ها',
+                  items: [
+                    { autogenerate: { directory: 'platforms/arduino/shields' } },
+                  ],
                 },
               ],
             },
@@ -62,7 +82,7 @@ export default defineConfig({
               items: [
                 // {
                 //   autogenerate: {
-                //     directory: 'hardware-platforms/espressif',
+                //     directory: 'platforms/espressif',
                 //   },
                 // },
               ],
@@ -74,6 +94,11 @@ export default defineConfig({
         //   label: 'ماژول‌ها و قطعات',
         //   items: [{ autogenerate: { directory: 'components-modules' } }],
         // },
+
+        {
+          label: 'پروژه ها',
+          items: [{ autogenerate: { directory: 'projects' } }],
+        },
       ],
     }),
   ],

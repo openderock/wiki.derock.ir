@@ -1,32 +1,34 @@
 ---
-title: Arduino UNO R3
-description: معرفی برد Arduino UNO R3 مبتنی بر ATmega328P
+title: Arduino UNO R3 SMD
+description: معرفی برد Arduino UNO R3 SMD مبتنی بر ATmega328P
 ---
 import { Aside } from '@astrojs/starlight/components';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { LinkButton } from '@astrojs/starlight/components';
 
-برد Arduino Uno یک برد میکروکنترلری مبتنی بر `ATmega328P` است. این برد دارای ۱۴ پایه ورودی/خروجی دیجیتال است که ۶ عدد از آن‌ها می‌توانند به عنوان خروجی PWM استفاده شوند. همچنین شامل ۶ ورودی آنالوگ، یک رزوناتور سرامیکی ۱۶ مگاهرتزی (`CSTCE16M0V53‑R0`)، اتصال USB، جک تغذیه، هدر ICSP و یک دکمه Reset است.
+Arduino Uno Rev3 SMD یک برد میکروکنترلری مبتنی بر `ATmega328` است. این برد دارای 14 پایه ورودی/خروجی دیجیتال است که 6 عدد از آن‌ها می‌توانند به عنوان خروجی PWM استفاده شوند. همچنین شامل 6 ورودی آنالوگ، یک رزوناتور سرامیکی 16 مگاهرتزی (`CSTCE16M0V53-R0`)، اتصال USB، جک تغذیه، هدر `ICSP` و یک دکمه Reset است.
+این برد تمام اجزای لازم برای کار با میکروکنترلر را در خود دارد؛ کافی است آن را با یک کابل USB به کامپیوتر متصل کنید یا با یک آداپتور `AC` به `DC` یا باتری تغذیه کنید تا آماده استفاده شود.
 
-این برد تمام اجزای لازم برای کار با میکروکنترلر را در خود دارد؛ کافی است آن را با یک کابل USB به کامپیوتر متصل کنید یا با یک آداپتور AC به DC یا باتری تغذیه کنید تا کار را شروع کنید.
-می‌توانید با Uno آزادانه آزمایش و کار کنید بدون اینکه خیلی نگران خراب کردن چیزی باشید؛ در بدترین حالت می‌توانید چیپ میکروکنترلر را با هزینه‌ای کم تعویض کنید و دوباره از ابتدا شروع کنید.
 
 <Aside type="note">
 کلمه `Uno` در زبان ایتالیایی به معنی «یک» است و این نام برای نشان دادن انتشار نسخه `Arduino 1.0` انتخاب شده است. برد Uno و نسخه `1.0` به عنوان نسخه‌های مرجع آردوینو در نظر گرفته شدند. Uno جدیدترین عضو از مجموعه بردهای USB آردوینو است و به عنوان مدل مرجع پلتفرم Arduino شناخته می‌شود.
 </Aside>
 
+<Aside type="tip">
+عبارت "SMD" مخفف Surface-Mount Device است و به این معنی است که میکروکنترلر `ATmega328P` به صورت مستقیم روی برد لحیم شده است.
+</Aside>
 ## تصاویر
 <Tabs>
   <TabItem label="نمای روبرو">
-    ![Arduino Uno Front](assets/img/arduino-uno-r3-front.webp)
+    ![Arduino Uno SMD Front](../assets/img/arduino-uno-r3-smd-front.webp)
     *نمای روبروی برد رسمی*
   </TabItem>
   <TabItem label="نمای پشت">
-    ![Arduino Uno Back](assets/img/arduino-uno-r3-back.webp)
+    ![Arduino Uno SMD Front](../assets/img/arduino-uno-r3-smd-back.webp)
     *نمای پشت برد رسمی*
   </TabItem>
   <TabItem label="اجزاء">
-    ![Arduino Uno Diagram](assets/img/Pinout-UNOrev3_latest.png)
+    ![Arduino Uno Diagram](../assets/img/Pinout-UNOrev3SMD_latest.png)
   </TabItem>
 </Tabs>
 
@@ -35,27 +37,27 @@ import { LinkButton } from '@astrojs/starlight/components';
 
 <Tabs>
   <TabItem label="مستندات">
-    <LinkButton href="/files/arduino/arduino-uno-r3-datasheet.pdf" variant="link" icon='document' iconPlacement='start'>
-      دیتاشیت
-    </LinkButton>
-    <LinkButton href="/files/arduino/arduino-uno-r3-pinout.pdf" variant="link" icon='document' iconPlacement='start'>
+    <LinkButton href="/arduino/arduino-uno-r3-smd-pinout.pdf" variant="link" icon='document' iconPlacement='start'>
       نقشه اجزای برد
     </LinkButton>
-    <LinkButton href="/files/arduino/arduino-uno-r3-schematics.pdf" variant="link" icon='document' iconPlacement='start'>
+    <LinkButton href="/arduino/arduino-uno-r3-smd-schematics.pdf" variant="link" icon='document' iconPlacement='start'>
       شماتیک مدار
     </LinkButton>
-    <LinkButton href="/files/arduino/arduino-uno-r3-cad-files.zip" variant="link" icon='download' iconPlacement='start'>
+    <LinkButton href="/arduino/arduino-uno-r3-smd-cad-files.zip" variant="link" icon='download' iconPlacement='start'>
       فایل های CAD
+    </LinkButton>
+    <LinkButton href="/arduino/arduino-uno-r3-smd-altium-designer.zip" variant="link" icon='download' iconPlacement='start'>
+      فایل های Altium
     </LinkButton>
   </TabItem>
   <TabItem label="درایور">
-    <LinkButton href="/files/arduino/CH34x_Install_Windows_v3_4.zip" variant="link" icon='download' iconPlacement='start'>
+    <LinkButton href="/drivers/ch340-win.zip" variant="link" icon='download' iconPlacement='start'>
       درایور اتصال USB با چیپست CH340 برای Windows
     </LinkButton>
-    <LinkButton href="/files/arduino/CH341SER_MAC_LINUX.zip" variant="link" icon='download' iconPlacement='start'>
+    <LinkButton href="/drivers/ch340-linux.zip" variant="link" icon='download' iconPlacement='start'>
       درایور اتصال USB با چیپست CH340 برای Linux
     </LinkButton>
-    <LinkButton href="/files/arduino/CH341SER_MAC_V1_8.zip" variant="link" icon='download' iconPlacement='start'>
+    <LinkButton href="/drivers/ch340-mac.zip" variant="link" icon='download' iconPlacement='start'>
       درایور اتصال USB با چیپست CH340 برایMacOS
     </LinkButton>
   </TabItem>
