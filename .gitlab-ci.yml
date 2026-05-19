@@ -9,12 +9,13 @@ cache:
   paths:
     - node_modules/
 
+before_script:
+  - npm config set registry https://package-mirror.liara.ir/repository/npm/ --global
+  - npm ping
+
 build_site:
   image: node:25
   stage: build
-  before_script:
-    - npm config set registry https://package-mirror.liara.ir/repository/npm/ --global
-    - npm ping
   script:
     - npm i
     - npm run build
@@ -42,4 +43,6 @@ deploy_site:
         --accessKeyId "$ARVAN_ACCESS_KEY" \
         --secretAccessKey "$ARVAN_SECRET_KEY" \
         --public \
+        --preventUpdates \
+        --gzip \
         --deleteRemoved
