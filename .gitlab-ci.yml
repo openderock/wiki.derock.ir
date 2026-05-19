@@ -1,62 +1,49 @@
-# stages:
-#   - build
-#   - deploy
-
-# image: node:25
-
-# variables:
-#   NODE_ENV: production
-
-# cache:
-#   paths:
-#     - node_modules/
-
-# before_script:
-#   # - npm config set registry https://package-mirror.liara.ir/repository/npm/ --global
-#   - npm config set registry https://hub.megan.ir/npm --global
-#   - npm ping
-
-# build_site:
-#   stage: build
-#   script:
-#     - npm i
-#     - npm run build
-#   artifacts:
-#     paths:
-#       - dist/
-#     expire_in: 1 hour
-#   only:
-#     - master
-
-# deploy_site:
-#   stage: deploy
-#   needs:
-#     - job: build_site
-#       artifacts: true
-#   only:
-#     - master
-#   script:
-#     # Use npx to run s3-deploy without needing to install it globally
-#     - npx s3-deploy './dist/**' \
-#         --cwd ./dist \
-#         --bucket wiki-derock \
-#         --endpoint s3.ir-thr-at1.arvanstorage.ir \
-#         --accessKeyId $ARVAN_ACCESS_KEY \
-#         --secretAccessKey $ARVAN_SECRET_KEY \
-#         --public \
-#         --preventUpdates \
-#         --gzip \
-#         --deleteRemoved
-
-image:  hub.hamdocker.ir/amazon/aws-cli
-
 stages:
-  - test
+  - build
+  - deploy
 
-test_aws_cli_image:
-  stage: test
-  script:
-    - echo "Checking amazon/aws-cli:2 image..."
-    - aws --version
+# ---------- BUILD STAGE ----------
+build_site:
+  image: node:25
+  stage: build
   only:
-    - master
+    - main
+  cache:
+    paths:
+      - node_modules/
+  before_script:
+    # - npm config set registry https://package-mirror.liara.ir/repository/npm/ --global
+    - npm config set registry https://hub.megan.ir/npm --global
+    - npm ping
+  script:
+    - npm ci
+    - npm run build   # Astro/Starlight builds into dist/
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+# ---------- DEPLOY STAGE ----------
+deploy_site:
+  image: amazon/aws-cli
+  stage: deploy
+  needs:
+    - job: build_site
+      artifacts: true
+  only:
+    - main
+  before_script:
+    # Configure AWS CLI with ArvanCloud S3 credentials
+    - aws configure set aws_access_key_id "$ARVAN_ACCESS_KEY"
+    - aws configure set aws_secret_access_key "$ARVAN_SECRET_KEY"
+    - aws configure set default.region us-east-1
+  script:
+    # Sync dist/ → ArvanCloud bucket
+    # aws s3 sync already avoids re-uploading unchanged files.
+    # --size-only makes it ignore timestamp-only differences.
+    - aws s3 sync dist s3://wiki-derock \
+        --endpoint-url s3.ir-thr-at1.arvanstorage.ir \
+        --delete \
+        --acl public-read \
+        --size-only
+
