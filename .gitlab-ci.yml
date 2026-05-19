@@ -41,9 +41,5 @@ deploy_site:
     # Sync dist/ → ArvanCloud bucket
     # aws s3 sync already avoids re-uploading unchanged files.
     # --size-only makes it ignore timestamp-only differences.
-    - aws s3 sync dist s3://wiki-derock \
-        --endpoint-url s3.ir-thr-at1.arvanstorage.ir \
-        --delete \
-        --acl public-read \
-        --size-only
+    - aws s3 sync dist s3://wiki-derock --endpoint-url https://s3.ir-thr-at1.arvanstorage.ir --delete --acl public-read --size-only
 
