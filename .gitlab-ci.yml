@@ -15,10 +15,9 @@ build_site:
   before_script:
     - npm config set registry https://package-mirror.liara.ir/repository/npm/ --global
     - npm ping
-    - npm i -g pnpm
   script:
-    - pnpm i
-    - pnpm build
+    - npm i
+    - npm build
   artifacts:
     paths:
       - dist/
