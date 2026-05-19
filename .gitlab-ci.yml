@@ -13,6 +13,8 @@ build_site:
   image: node:25
   stage: build
   before_script:
+    - npm config set registry https://package-mirror.liara.ir/repository/npm/ --global
+    - npm ping
     - npm i -g pnpm
   script:
     - pnpm ci
