@@ -17,7 +17,7 @@ build_site:
     - npm ping
     - npm i -g pnpm
   script:
-    - pnpm ci
+    - pnpm i
     - pnpm build
   artifacts:
     paths:
