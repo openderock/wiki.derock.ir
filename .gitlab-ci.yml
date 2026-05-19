@@ -27,17 +27,19 @@ build_site:
 
 deploy_site:
   stage: deploy
-  image: amazon/aws-cli:2
+  image: node:25
   needs:
     - job: build_site
       artifacts: true
   only:
     - master
   script:
-    - aws configure set aws_access_key_id "$ARVAN_ACCESS_KEY"
-    - aws configure set aws_secret_access_key "$ARVAN_SECRET_KEY"
-    - aws configure set default.region us-east-1
-    - aws s3 sync dist "s3://$ARVAN_BUCKET" \
-        --endpoint-url "$ARVAN_ENDPOINT" \
-        --delete \
-        --acl public-read
+    # Use npx to run s3-deploy without needing to install it globally
+    - npx s3-deploy './dist/**' \
+        --cwd ./dist \
+        --bucket "wiki-derock" \
+        --endpoint "s3.ir-thr-at1.arvanstorage.ir" \
+        --accessKeyId "$ARVAN_ACCESS_KEY" \
+        --secretAccessKey "$ARVAN_SECRET_KEY" \
+        --public \
+        --deleteRemoved
