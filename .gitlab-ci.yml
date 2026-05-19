@@ -1,0 +1,40 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  NODE_ENV: production
+
+cache:
+  paths:
+    - node_modules/
+
+build_site:
+  image: node:25
+  stage: build
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+  only:
+    - master
+
+deploy_site:
+  stage: deploy
+  image: amazon/aws-cli:2
+  needs:
+    - job: build_site
+      artifacts: true
+  only:
+    - master
+  script:
+    - aws configure set aws_access_key_id "$ARVAN_ACCESS_KEY"
+    - aws configure set aws_secret_access_key "$ARVAN_SECRET_KEY"
+    - aws configure set default.region us-east-1
+    - aws s3 sync dist "s3://$ARVAN_BUCKET" \
+        --endpoint-url "$ARVAN_ENDPOINT" \
+        --delete \
+        --acl public-read
