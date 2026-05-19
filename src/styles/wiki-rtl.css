@@ -28,7 +28,7 @@
 .site-title {
   font-weight: 100;
   letter-spacing: -1px;
-  color: black;
+  color: var(--sl-color-white);;
 }
 
 .sl-markdown-content {

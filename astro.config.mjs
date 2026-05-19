@@ -6,7 +6,8 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'دانشنامه الکترونیک دِراک',
+      title: 'ویکی‌دراک',
+      description: 'آموزش‌ها، راهنماها و مستندات فنی کارگاه فناوری دراک',
       favicon: '/favicon.png',
       customCss: ['./src/styles/wiki-rtl.css'],
       lastUpdated: true,
@@ -14,12 +15,16 @@ export default defineConfig({
         src: './src/assets/img/logo-40.png', // مسیر لوگو
         alt: 'لوگو کارگاه فنّاوری دراک',
       },
-
       social: [
         {
+          icon: 'codeberg',
+          label: 'کارگاه فنّاوری دِراک',
+          href: 'https://derock.ir',
+        },
+        {
           icon: 'gitlab',
-          label: 'Chabokan Gitlab',
-          href: 'https://gitlab.chabokan.net/derock.ir/wiki',
+          label: 'همگیت همروش',
+          href: 'https://hamgit.ir/derock.ir/wiki',
         },
       ],
 
