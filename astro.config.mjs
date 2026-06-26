@@ -102,10 +102,10 @@ export default defineConfig({
                   label: 'آشنایی با ESP8266',
                   link: 'platforms/espressif/esp8266',
                 },
-                // {
-                //   label: 'آشنایی با ESP32',
-                //   link: 'platforms/espressif/esp8266',
-                // },
+                {
+                  label: 'آشنایی با ESP32',
+                  link: 'platforms/espressif/esp32',
+                },
                 {
                   label: 'مدل‌ها',
                   items: [
