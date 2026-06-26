@@ -85,16 +85,6 @@ export default defineConfig({
                   ],
                 },
                 {
-                  label: 'پروژه‌ها',
-                  items: [
-                    {
-                      autogenerate: {
-                        directory: 'platforms/arduino/libraries',
-                      },
-                    },
-                  ],
-                },
-                {
                   label: 'شیلد‌ها',
                   items: [
                     {
@@ -106,13 +96,40 @@ export default defineConfig({
             },
 
             {
-              label: ' برد های اسپرسیف',
+              label: ' اسپرسیف',
               items: [
+                {
+                  label: 'آشنایی با ESP8266',
+                  link: 'platforms/espressif/esp8266',
+                },
                 // {
-                //   autogenerate: {
-                //     directory: 'platforms/espressif',
-                //   },
+                //   label: 'آشنایی با ESP32',
+                //   link: 'platforms/espressif/esp8266',
                 // },
+                {
+                  label: 'مدل‌ها',
+                  items: [
+                    // { autogenerate: { directory: 'platforms/espressif/boards' } },
+                  ],
+                },
+                {
+                  label: 'راهنماها',
+                  items: [
+                    {
+                      autogenerate: {
+                        directory: 'platforms/espressif/tutorials',
+                      },
+                    },
+                  ],
+                },
+                {
+                  label: 'شیلد‌ها',
+                  items: [
+                    {
+                      autogenerate: { directory: 'platforms/espressif/shields' },
+                    },
+                  ],
+                },
               ],
             },
           ],
