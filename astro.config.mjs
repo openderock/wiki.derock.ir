@@ -82,7 +82,7 @@ export default defineConfig({
                   items: [
                     {
                       autogenerate: {
-                        directory: 'platforms/arduino/tutorials',
+                        directory: 'platforms/arduino/manuals',
                       },
                     },
                   ],
@@ -119,7 +119,7 @@ export default defineConfig({
                 //   items: [
                 //     {
                 //       autogenerate: {
-                //         directory: 'platforms/esp8266/tutorials',
+                //         directory: 'platforms/esp8266/manuals',
                 //       },
                 //     },
                 //   ],
@@ -156,7 +156,7 @@ export default defineConfig({
                   items: [
                     {
                       autogenerate: {
-                        directory: 'platforms/esp32/tutorials',
+                        directory: 'platforms/esp32/manuals',
                       },
                     },
                   ],
